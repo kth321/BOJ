@@ -1,21 +1,24 @@
-computer = int(input())
-link = []
-for _ in range(int(input())):
-    a, b = map(int, input().split())
-    if link:
-        flag = False
-        for i in link:
-            if a in i or b in i:
-                i.add(a)
-                i.add(b)
-                flag = True
-        if not flag:
-            link.append({a, b})
-    else:
-        link.append({a, b})
+from collections import deque
+import sys
 
-for i in link:
-    if 1 in i:
-        print(len(i)-1)
-for i in link:
-    print(i)
+read = sys.stdin.readline
+
+def bfs(start_v=1):
+	q = deque([start_v])
+	check = []
+	while q:
+		v = q.popleft()
+		for w in table[v]:
+			if w not in check:
+				q.append(w)
+		if v not in check:
+			check.append(v)
+	return len(check) - 1
+
+n, m = int(read()), int(read())
+table = {i+1: [] for i in range(n)}
+for _ in range(m):
+	s, e = map(int, read().split())
+	table[s].append(e)
+	table[e].append(s)
+print(bfs())
