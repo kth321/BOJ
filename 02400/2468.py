@@ -22,7 +22,7 @@ res = 0
 table = [list(map(int, read().split()))
             for _ in range(n)]
 
-for k in range(1, max(map(max, table)) + 1):
+for k in range(max(map(max, table)) + 1):
     visited = [[False] * n for _ in range(n)]
     cnt = 0
     for i in range(n):
