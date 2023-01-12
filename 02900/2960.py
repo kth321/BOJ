@@ -1,17 +1,16 @@
-import sys
+def check(n, k):
+    sieve = [True] * (n + 1)
+    cnt = 0
 
-N, K = map(int, sys.stdin.readline().split())
-nums = [False, False] + [True] * (N-1)
-cnt = 0
+    for i in range(2, n + 1):
+        if sieve[i] == True:
+            for j in range(i, n + 1, i):
+                if sieve[j] == True:
+                    cnt += 1
+                    print('j: ', j, 'cnt: ', cnt)
+                    sieve[j] = False
+                    if cnt == k:
+                        return j
 
-while True:
-    min_value = nums.index(True)
-    for i in range(min_value, N+1, min_value):
-        if nums[i]:
-            nums[i] = False
-            cnt += 1
-            if cnt == K:
-                print(i)
-                break
-    if cnt == K:
-        break
+n, k = map(int, input().split())
+print(check(n, k))
