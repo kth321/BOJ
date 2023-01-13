@@ -1,14 +1,11 @@
-num = [None, 1, 2, 4] + [None] * 7
+dp = [0, 1, 2, 4] + [0] * 7
 
 def f(x):
-    if x == 1:
-        return 1
-    elif x == 2:
-        return 2
-    if num[x] != None:
-        return num[x]
-    num[x] = f(x-3) + f(x-2) + f(x-1)
-    return num[x]
+    if dp[x] != 0:
+        return dp[x]
+    dp[x] = f(x - 3) + f(x - 2) + f(x - 1)
+    return dp[x]
 
-for _ in range(int(input())):
-    print(f(int(input())))
+f(10)
+for T in range(int(input())):
+    print(dp[int(input())])
