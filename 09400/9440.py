@@ -10,6 +10,7 @@ while True:
     nums.sort()
     a = nums[1:n:2]
     b = nums[:n:2]
+    
     if nums.count('0') % 2 == 1:
         a[-1], b[-1] = b[-1], a[-1]
 
