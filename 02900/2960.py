@@ -7,7 +7,6 @@ def check(n, k):
             for j in range(i, n + 1, i):
                 if sieve[j] == True:
                     cnt += 1
-                    print('j: ', j, 'cnt: ', cnt)
                     sieve[j] = False
                     if cnt == k:
                         return j
