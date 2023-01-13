@@ -1,2 +1,2 @@
 for i in range(int(input())):
-    print(f'Hello world, Judge {i + 1}!')
+    print(f'Hello World, Judge {i + 1}!')
