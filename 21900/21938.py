@@ -11,7 +11,7 @@ def bfs(i, j):
     while q:
         x, y = q.popleft()
         if 0 <= x < n and 0 <= y < m * 3 and \
-            visited[x][y] == False and sum(graph[x][y:y+3]) / 3 > t:
+            visited[x][y] == False and sum(graph[x][y:y+3]) / 3 >= t:
             visited[x][y] = True
             for d in directions:
                 nx, ny = x + d[0], y + d[1] * 3
@@ -29,9 +29,4 @@ for i in range(n):
             visited[i][j] == False:
             bfs(i, j)
             res += 1
-for i in range(n):
-    for j in range(0, 3 * m, 3):
-        print(visited[i][j], end=' ')
-    print()
-print()
 print(res)
