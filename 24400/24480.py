@@ -1,6 +1,7 @@
 import sys
 from collections import deque
 
+sys.setrecursionlimit(1_000_000)
 read = sys.stdin.readline
 
 def dfs(graph, v, visited):
