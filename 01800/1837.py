@@ -1,8 +1,7 @@
 p, k = map(int, input().split())
-for i in range(2, p):
+for i in range(2, k):
     if p % i == 0:
-        if p >= k and p // i >= k:
-            print('GOOD')
-        else:
-            print('BAD', i)
-        exit()
+        print('BAD', i)
+        break
+else:
+    print('GOOD')
