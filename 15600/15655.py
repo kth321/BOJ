@@ -1,5 +1,4 @@
 def dfs(idx=0, elements=[]):
-    print(elements)
     if len(elements) == m:
         res.append(elements)
         return None
