@@ -1,20 +1,20 @@
 def dfs(idx, res, plus, minus, mul, div):
     global max_v, min_v
     if idx == n:
-        max_v = max(max_v, res)
-        min_v = min(min_v, res)
+        max_v = max(max_v, eval(res))
+        min_v = min(min_v, eval(res))
         return None
     if plus:
-        dfs(idx+1, res + nums[idx], plus-1, minus, mul, div)
+        dfs(idx+1, res + '+' + nums[idx], plus-1, minus, mul, div)
     if minus:
-        dfs(idx+1, res - nums[idx], plus, minus-1, mul, div)
+        dfs(idx+1, res + '-' + nums[idx], plus, minus-1, mul, div)
     if mul:
-        dfs(idx+1, res * nums[idx], plus, minus, mul-1, div)
+        dfs(idx+1, res + '*' + nums[idx], plus, minus, mul-1, div)
     if div:
-        dfs(idx+1, int(res / nums[idx]), plus, minus, mul, div-1)
+        dfs(idx+1, res + '//' + nums[idx], plus, minus, mul, div-1)
 
 n = int(input())
-nums = list(map(int, input().split()))
+nums = input().split()
 plus, minus, mul, div = map(int, input().split())
 v = 1e9
 max_v, min_v = -v, v
