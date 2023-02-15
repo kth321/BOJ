@@ -1,11 +1,11 @@
+import sys
+
+read = sys.stdin.readline
+
 dp = [0, 1, 2, 4] + [0] * 7
 
-def f(x):
-    if dp[x] != 0:
-        return dp[x]
-    dp[x] = f(x - 3) + f(x - 2) + f(x - 1)
-    return dp[x]
+for i in range(4, 11):
+    dp[i] = dp[i-1] + dp[i-2] + dp[i-3]
 
-f(10)
-for T in range(int(input())):
-    print(dp[int(input())])
+for _ in range(int(read())):
+    print(dp[int(read())])
