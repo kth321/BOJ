@@ -28,4 +28,4 @@ n = int(read())
 graph = [list(map(int, read().split())) for _ in range(n)]
 w, b = 0, 0
 sol(0, 0, n)
-print(w, b)
+print(w); print(b)
