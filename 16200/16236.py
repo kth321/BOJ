@@ -19,7 +19,6 @@ def bfs(i, j, shark_size):
             nx, ny = x + d[0], y + d[1]
             if 0 <= nx < n and 0 <= ny < n and \
                 not visited[nx][ny]:
-                visited[nx][ny] = True
                 if 1 <= graph[nx][ny] <= 6 and \
                     graph[nx][ny] < shark_size:
                     q.append((dist+1, nx, ny))
