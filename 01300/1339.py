@@ -17,6 +17,4 @@ res_list = sorted(table.values(), reverse=True)
 for elem in res_list:
     res += elem * idx
     idx -= 1
-print(table)
-print(res_list)
 print(res)
