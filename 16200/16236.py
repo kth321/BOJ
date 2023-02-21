@@ -27,8 +27,6 @@ def bfs(i, j, shark_size):
                     graph[nx][ny] == shark_size:
                     q.append((dist+1, nx, ny))
     return sorted(ret)[0] if ret else False
-    
-
 
 def find_fish():
     for i in range(n):
