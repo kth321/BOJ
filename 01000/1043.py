@@ -10,36 +10,22 @@ def find(x):
 def union(a, b):
     a = find(a)
     b = find(b)
-
-    if a in t_people and b in t_people:
-        return None
-    
-    if a in t_people:
-        parent[b] = a
-    elif b in t_people:
-        parent[a] = b
-    else:
-        if a < b:
-            parent[b] = a
-        else:
-            parent[a] = b
+    parent[b] = a
 
 n, m = map(int, read().split())
-t_num, *t_people = map(int, read().split())
-t_people = set(t_people)
+truth = list(map(int, read().split()))[1:]
 parent = [i for i in range(n+1)]
 parties = []
 res = 0
-
 for _ in range(m):
-    p_len, *party = map(int, read().split())
-    for i in range(p_len - 1):
-        union(party[i], party[i+1])
+    party = list(map(int, read().split()))[1:]
+    first = party[0]
+    for person in party[1:]:
+        union(first, person)
     parties.append(party)
-
 for party in parties:
-    for p in party:
-        if find(p) in t_people:
+    for t in truth:
+        if find(party[0]) == find(t):
             break
     else:
         res += 1
